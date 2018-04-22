@@ -6,7 +6,7 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication
 @EnableAutoConfiguration
-class BookingAppApplication
+open class BookingAppApplication
 
 fun main(args: Array<String>) {
     runApplication<BookingAppApplication>(*args)
