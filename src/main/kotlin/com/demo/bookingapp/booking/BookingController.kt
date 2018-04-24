@@ -12,7 +12,7 @@ class BookingController(private val bookingService: BookingService) {
         return bookingService.findBookings()
     }
 
-    @PostMapping(value = "/{customerId}/{hotelId}")
+    @PostMapping(value = ["/{customerId}/{hotelId}"])
     fun createBooking(@RequestBody bookingRequestDTO: BookingRequestDTO,
                       @PathVariable hotelId: Long,
                       @PathVariable customerId: Long): ResponseEntity<Void> {

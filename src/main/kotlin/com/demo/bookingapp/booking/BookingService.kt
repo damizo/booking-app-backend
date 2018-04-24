@@ -26,8 +26,8 @@ class BookingService(private val bookingRepository: BookingRepository,
                 LocalDateTime.now(), "Ibis", 3L))
     }
 
-    fun create(customerId: Long?,
-               hotelId: Long?,
+    fun create(customerId: Long,
+               hotelId: Long,
                bookingRequestDTO: BookingRequestDTO) {
 
         log.debug("Before validation, creating booking...")
