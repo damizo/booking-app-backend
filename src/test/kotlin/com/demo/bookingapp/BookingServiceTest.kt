@@ -34,31 +34,11 @@ class BookingServiceTest {
 
     @InjectMocks
     private lateinit var bookingService: BookingService
-
-    @Test(expected = NonRequiredDataException::class)
-    fun shouldNotCreateBookingWithoutCustomerId() {
-        val customerId: Long? = null
-        val hotelId: Long? = null
-        val bookingRequestDTO: BookingRequestDTO = buildBookingRequest()
-
-        bookingService.create(customerId, hotelId, bookingRequestDTO)
-
-    }
-
-    @Test(expected = NonRequiredDataException::class)
-    fun shouldNotCreateBookingWithoutHotelId() {
-        val customerId: Long? = 1L
-        val hotelId: Long? = null
-        val bookingRequestDTO: BookingRequestDTO = buildBookingRequest()
-
-        bookingService.create(customerId, hotelId, bookingRequestDTO)
-
-    }
-
+    
     @Test(expected = NonRequiredDataException::class)
     fun shouldNotCreateBookingWithoutFromDateFieldInBody() {
-        val customerId: Long? = 1L
-        val hotelId: Long? = 15L
+        val customerId: Long = 1L
+        val hotelId: Long = 15L
         var bookingRequestDTO: BookingRequestDTO = buildBookingRequest()
 
         bookingRequestDTO.fromDate = null
@@ -68,8 +48,8 @@ class BookingServiceTest {
 
     @Test(expected = NonRequiredDataException::class)
     fun shouldNotCreateBookingWithoutToDateFieldInBody() {
-        val customerId: Long? = 1L
-        val hotelId: Long? = 15L
+        var customerId: Long = 1L
+        var hotelId: Long = 15L
         var bookingRequestDTO: BookingRequestDTO = buildBookingRequest()
 
         bookingRequestDTO.toDate = null
